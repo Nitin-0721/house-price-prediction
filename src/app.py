@@ -17,10 +17,9 @@ st.markdown("---")
 # Load model and scaler
 @st.cache_resource
 def load_model():
-    model = joblib.load('../models/best_model.pkl')
-    scaler = joblib.load('../models/scaler.pkl')
-    # Load ORIGINAL unscaled data for correct medians
-    df = pd.read_csv('../data/train.csv')
+    model = joblib.load('models/best_model.pkl')
+    scaler = joblib.load('models/scaler.pkl')
+    df = pd.read_csv('data/train.csv')
     df = df.drop(df[(df['GrLivArea'] > 4000) & 
                     (df['SalePrice'] < 200000)].index)
     return model, scaler, df
@@ -36,14 +35,14 @@ garage_cars = st.sidebar.slider("Garage Cars Capacity", 0, 4, 2)
 garage_area = st.sidebar.number_input("Garage Area (sqft)", 0, 1500, 400)
 total_bsmt_sf = st.sidebar.number_input("Basement Area (sqft)", 0, 3000, 800)
 first_flr_sf = st.sidebar.number_input("1st Floor Area (sqft)", 500, 4000, 1000)
-full_bath = st.sidebar.slider("Full Bathrooms", 0, 4, 2)
+full_bath = st.sidebar.slider("Full Bathrooms",0, 4, 2)
 year_built = st.sidebar.number_input("Year Built", 1900, 2024, 2000)
 yr_sold = st.sidebar.number_input("Year Sold", 2006, 2024, 2010)
 tot_rms_abv_grd = st.sidebar.slider("Total Rooms", 2, 14, 6)
 
 if st.sidebar.button("🔮 Predict Price"):
     # Load X_train column names
-    feature_cols = pd.read_csv('../data/X_train.csv').columns.tolist()
+    feature_cols = pd.read_csv('data/X_train.csv').columns.tolist()
     
     # Get median from ORIGINAL unscaled data
     df_num = df_original.select_dtypes(include=np.number)
