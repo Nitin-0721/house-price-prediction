@@ -7,7 +7,7 @@ app = FastAPI(title="House Price API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React dev server
+    allow_origins=["*"],  # Allow all origins
     allow_methods=["*"],
     allow_headers=["*"],
 )
