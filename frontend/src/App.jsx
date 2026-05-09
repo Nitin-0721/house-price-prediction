@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-const API_URL = 'http://localhost:8000/api/predict'
+const API_URL = 'https://estimateiq-backend.onrender.com/api/predict'
 
 function App() {
   const [form, setForm] = useState({
