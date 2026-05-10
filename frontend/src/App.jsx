@@ -60,7 +60,7 @@ function App() {
         <div className="nav-brand">🏡 EstimateIQ</div>
         <div className="nav-links">
           <a href="#">Home</a>
-          <a href="http://localhost:8000/docs" target="_blank" className="docs">API Docs ↗</a>
+          <a href="https://estimateiq-backend.onrender.com/docs" target="_blank" className="docs">API Docs ↗</a>
         </div>
       </nav>
 
@@ -91,6 +91,7 @@ function App() {
 
       <main className="container">
         <div className="layout">
+
           <div className="sidebar">
             <h2 className="card-title">🏠 Enter House Features</h2>
             <div className="divider"/>
@@ -104,11 +105,8 @@ function App() {
 
             <div className="field">
               <label>Living Area (sq ft)</label>
-              <div className="number-input">
-                <button onClick={() => setForm({...form, GrLivArea: Math.max(0, form.GrLivArea - 100)})}>−</button>
-                <span>{form.GrLivArea.toLocaleString()}</span>
-                <button onClick={() => setForm({...form, GrLivArea: form.GrLivArea + 100})}>+</button>
-              </div>
+              <input type="number" className="text-input" name="GrLivArea"
+                value={form.GrLivArea} onChange={handleChange} min="0"/>
             </div>
 
             <div className="field">
@@ -119,29 +117,20 @@ function App() {
 
             <div className="field">
               <label>Garage Area (sq ft)</label>
-              <div className="number-input">
-                <button onClick={() => setForm({...form, GarageArea: Math.max(0, form.GarageArea - 50)})}>−</button>
-                <span>{form.GarageArea}</span>
-                <button onClick={() => setForm({...form, GarageArea: form.GarageArea + 50})}>+</button>
-              </div>
+              <input type="number" className="text-input" name="GarageArea"
+                value={form.GarageArea} onChange={handleChange} min="0"/>
             </div>
 
             <div className="field">
               <label>Basement Area (sq ft)</label>
-              <div className="number-input">
-                <button onClick={() => setForm({...form, TotalBsmtSF: Math.max(0, form.TotalBsmtSF - 100)})}>−</button>
-                <span>{form.TotalBsmtSF}</span>
-                <button onClick={() => setForm({...form, TotalBsmtSF: form.TotalBsmtSF + 100})}>+</button>
-              </div>
+              <input type="number" className="text-input" name="TotalBsmtSF"
+                value={form.TotalBsmtSF} onChange={handleChange} min="0"/>
             </div>
 
             <div className="field">
               <label>1st Floor Area (sq ft)</label>
-              <div className="number-input">
-                <button onClick={() => setForm({...form, FirstFlrSF: Math.max(0, form.FirstFlrSF - 100)})}>−</button>
-                <span>{form.FirstFlrSF}</span>
-                <button onClick={() => setForm({...form, FirstFlrSF: form.FirstFlrSF + 100})}>+</button>
-              </div>
+              <input type="number" className="text-input" name="FirstFlrSF"
+                value={form.FirstFlrSF} onChange={handleChange} min="0"/>
             </div>
 
             <div className="field">
@@ -152,20 +141,14 @@ function App() {
 
             <div className="field">
               <label>Year Built</label>
-              <div className="number-input">
-                <button onClick={() => setForm({...form, YearBuilt: Math.max(1800, form.YearBuilt - 1)})}>−</button>
-                <span>{form.YearBuilt}</span>
-                <button onClick={() => setForm({...form, YearBuilt: form.YearBuilt + 1})}>+</button>
-              </div>
+              <input type="number" className="text-input" name="YearBuilt"
+                value={form.YearBuilt} onChange={handleChange} min="1800" max="2024"/>
             </div>
 
             <div className="field">
               <label>Year Sold</label>
-              <div className="number-input">
-                <button onClick={() => setForm({...form, YrSold: Math.max(2000, form.YrSold - 1)})}>−</button>
-                <span>{form.YrSold}</span>
-                <button onClick={() => setForm({...form, YrSold: form.YrSold + 1})}>+</button>
-              </div>
+              <input type="number" className="text-input" name="YrSold"
+                value={form.YrSold} onChange={handleChange} min="2000" max="2024"/>
             </div>
 
             <div className="field">

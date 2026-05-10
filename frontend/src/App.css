@@ -9,7 +9,6 @@ body {
   min-height: 100vh;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -20,14 +19,12 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(10px);
 }
 .nav-brand {
   font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   font-weight: 700;
   color: #c9a84c;
-  letter-spacing: 0.02em;
 }
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 .nav-links a {
@@ -35,7 +32,6 @@ body {
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.05em;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: #c9a84c; }
@@ -43,27 +39,12 @@ body {
   border: 1px solid #333;
   padding: 6px 16px;
   border-radius: 20px;
-  color: #aaa;
 }
 .nav-links a.docs:hover { border-color: #c9a84c; color: #c9a84c; }
 
-/* Hero */
 .hero {
   text-align: center;
   padding: 5rem 1rem 3rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-  pointer-events: none;
 }
 .eyebrow {
   font-size: 11px;
@@ -79,16 +60,10 @@ body {
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 .hero h1 span { color: #c9a84c; font-style: italic; }
-.hero-sub {
-  color: #666;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-}
+.hero-sub { color: #666; font-size: 14px; }
 
-/* Stats bar */
 .stats-bar {
   display: flex;
   justify-content: center;
@@ -98,6 +73,7 @@ body {
   border-bottom: 1px solid #1a1a1a;
   background: #0d0d0d;
   margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 .stat { text-align: center; }
 .stat-val {
@@ -106,10 +82,16 @@ body {
   font-weight: 600;
   color: #c9a84c;
 }
-.stat-label { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+.stat-label {
+  font-size: 11px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
 
-/* Layout */
 .container { padding: 0 3rem 4rem; }
+
 .layout {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -118,7 +100,6 @@ body {
   margin: 0 auto;
 }
 
-/* Sidebar */
 .sidebar {
   background: #111;
   border: 1px solid #1e1e1e;
@@ -131,20 +112,15 @@ body {
   position: sticky;
   top: 80px;
 }
+
 .card-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
   color: #f0ece4;
 }
-.divider {
-  height: 1px;
-  background: #1e1e1e;
-  margin: 0.25rem 0;
-}
+.divider { height: 1px; background: #1e1e1e; }
 
-/* Fields */
 .field { display: flex; flex-direction: column; gap: 5px; }
 .field label {
   font-size: 11px;
@@ -167,7 +143,6 @@ body {
 .field input[type="range"] {
   accent-color: #c9a84c;
   width: 100%;
-  height: 4px;
   cursor: pointer;
 }
 .slider-labels {
@@ -177,37 +152,22 @@ body {
   color: #444;
 }
 
-/* Number input */
-.number-input {
-  display: flex;
-  align-items: center;
+.text-input {
   background: #0a0a0a;
   border: 1px solid #222;
   border-radius: 8px;
-  overflow: hidden;
-  transition: border 0.2s;
-}
-.number-input:hover { border-color: #333; }
-.number-input button {
-  background: #161616;
-  border: none;
-  color: #888;
-  padding: 7px 14px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.2s;
-  font-weight: 300;
-}
-.number-input button:hover { background: #222; color: #c9a84c; }
-.number-input span {
-  flex: 1;
-  text-align: center;
-  font-size: 14px;
+  padding: 9px 14px;
   color: #f0ece4;
+  font-size: 14px;
   font-weight: 500;
+  width: 100%;
+  outline: none;
+  transition: border 0.2s;
+  font-family: 'Inter', sans-serif;
 }
+.text-input:focus { border-color: #c9a84c; }
+.text-input::-webkit-inner-spin-button { opacity: 0.3; }
 
-/* Predict button */
 .btn-predict {
   width: 100%;
   background: linear-gradient(135deg, #c9a84c, #a8832a);
@@ -230,10 +190,8 @@ body {
 }
 .btn-predict:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
 
-/* Main content */
 .main-content { display: flex; flex-direction: column; gap: 1.5rem; }
 
-/* Prompt box */
 .prompt-box {
   background: #111;
   border: 1px solid #1e1e1e;
@@ -250,7 +208,6 @@ body {
 }
 .prompt-box p { color: #555; font-size: 14px; }
 
-/* Info grid */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -261,42 +218,27 @@ body {
   border: 1px solid #1e1e1e;
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
-  font-size: 14px;
-  color: #888;
   transition: border-color 0.2s;
 }
 .info-card:hover { border-color: #333; }
-.info-card .ic-label {
+.ic-label {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #555;
   margin-bottom: 4px;
 }
-.info-card .ic-val {
+.ic-val {
   font-size: 15px;
   color: #c9a84c;
   font-weight: 600;
 }
 
-/* Result card */
 .result-card {
   background: #111;
   border: 1px solid #2a2218;
   border-radius: 16px;
   padding: 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.result-card::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
-  pointer-events: none;
 }
 .result-label {
   font-size: 11px;
@@ -340,11 +282,9 @@ body {
   font-size: 13px;
   font-weight: 500;
   transition: all 0.2s;
-  letter-spacing: 0.05em;
 }
 .btn-reset:hover { border-color: #c9a84c; color: #c9a84c; }
 
-/* Error */
 .error {
   background: #1a0a0a;
   border: 1px solid #3a1a1a;
@@ -354,7 +294,6 @@ body {
   font-size: 13px;
 }
 
-/* Footer */
 .footer {
   text-align: center;
   padding: 2rem;
@@ -366,11 +305,9 @@ body {
 .footer span { color: #c9a84c; }
 
 @media (max-width: 768px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
+  .layout { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2.2rem; }
-  .stats-bar { gap: 1.5rem; flex-wrap: wrap; }
+  .stats-bar { gap: 1.5rem; }
   .container { padding: 0 1rem 3rem; }
   .navbar { padding: 1rem; }
   .result-meta { grid-template-columns: repeat(2, 1fr); }
